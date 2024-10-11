@@ -1,6 +1,7 @@
 package edu.example.reply.controller;
 
 import edu.example.reply.dto.ArticleForm;
+//import edu.example.reply.dto.CommentDto;
 import edu.example.reply.entity.Article;
 import edu.example.reply.repository.ArticleRepository;
 import lombok.extern.log4j.Log4j2;
@@ -50,12 +51,54 @@ public class ArticleController {
         log.info("id = " + id); //id를 잘 받았는지 확인하는 로그 찍기
         // 1.id를 조회해 데이터 가져오기
         Article articleEntity = articleRepository.findById(id).orElse(null);
-        List<CommentDto> commentsDtos = commentService.comments(id);
+//        List<CommentDto> commentsDtos = commentService.comments(id);
         //2. 모델에 데이터 등록하기
         model.addAttribute("article",articleEntity);
-        model.addAttribute("commentDtos",commentsDtod);
+//        model.addAttribute("commentDtos",commentsDtod);
         //댓글 목록 모델에 등록하기
         //3. 뷰 페이지 반환하기
         return "articles/show";
     }
+
+    @GetMapping("/articles")
+    public String index(){
+        // 1. 모든 데이터 가져오기
+        // 2. 모델에 데이터 등록하기
+        // 3. 뷰 페이지 설정하기
+        return "";
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
